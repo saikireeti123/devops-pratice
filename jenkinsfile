@@ -1,0 +1,18 @@
+pipeline{
+  agent any
+  trigger{
+   pollSCM('* * * * *')
+  }
+  stages{
+   stage('git'){
+      steps{
+      git url:'https://github.com/saikireeti123/devops-pratice.git',branch :'feature-ep-task-01'
+	 }
+   }
+   stage('build'){
+    steps{
+	  bat 'Hello.py'
+	}
+   }
+  }
+}
